@@ -10,6 +10,7 @@ class IntroScreen extends StatelessWidget {
       backgroundColor: Colors.lightBlue,
       appBar: AppBar(
         centerTitle: true,
+        //this for custome appBar color
         flexibleSpace: Container(
           decoration: BoxDecoration(
             gradient: LinearGradient(
