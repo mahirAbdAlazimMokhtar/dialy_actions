@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:test_app/widget/original_button.dart';
 
 class IntroScreen extends StatelessWidget {
   const IntroScreen({Key? key}) : super(key: key);
@@ -38,28 +39,11 @@ class IntroScreen extends StatelessWidget {
                   'assets/images/logo.png',
                 ),
               ),
-              SizedBox(
-                height: 60,
-                width: double.infinity,
-                child: RaisedButton(
-                  onPressed: () {
-                    Navigator.of(context).pushNamed('login');
-                    print('Clicked me');
-                  },
-                  color: Colors.white,
-                  child: Text(
-                    'Get Started!',
-                    style: TextStyle(
-                      fontSize: 20,
-                      letterSpacing: 1.2,
-                      color: Colors.lightBlue[400],
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(25),
-                  ),
-                ),
+              OriginalButton(
+                text: 'Get Started',
+                onPressed: () => Navigator.of(context).pushNamed('login'),
+                bgColor: Colors.white,
+                textColor: Colors.lightBlue,
               ),
             ],
           ),

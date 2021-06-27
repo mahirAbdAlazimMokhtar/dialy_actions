@@ -16,10 +16,35 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       home: IntroScreen(),
       routes: {
-        'login': (context) => AuthScreen(),
+        'login': (context) => AuthScreen(
+              authType: AuthType.login,
+            ),
+        'register': (context) => AuthScreen(
+              authType: AuthType.register,
+            ),
       },
+      //this for custome theme to your app
       theme: ThemeData(
-        inputDecorationTheme: InputDecorationTheme(),
+        inputDecorationTheme: InputDecorationTheme(
+            //this for give color
+            fillColor: Color(0xfff2f9fc),
+            filled: true,
+            disabledBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(25),
+                borderSide: BorderSide(
+                  color: Colors.grey,
+                )),
+            enabledBorder: OutlineInputBorder(
+              borderSide: BorderSide(color: Colors.grey),
+              borderRadius: BorderRadius.circular(25),
+            ),
+            focusedBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(
+                  25,
+                ),
+                borderSide: BorderSide(
+                  color: Colors.grey.shade400,
+                ))),
       ),
     );
   }

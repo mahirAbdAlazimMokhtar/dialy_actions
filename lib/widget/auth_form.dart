@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:test_app/screen/auth_screen.dart';
+
+import 'original_button.dart';
 
 class AuthForm extends StatefulWidget {
-  const AuthForm({Key? key}) : super(key: key);
+  final AuthType authType;
+  const AuthForm({Key? key, required this.authType}) : super(key: key);
 
   @override
   _AuthFormState createState() => _AuthFormState();
@@ -21,6 +25,9 @@ class _AuthFormState extends State<AuthForm> {
           ),
           child: Column(
             children: [
+              SizedBox(
+                height: 20,
+              ),
               TextFormField(
                 decoration: InputDecoration(
                   labelText: 'Enter Your Email',
@@ -31,6 +38,9 @@ class _AuthFormState extends State<AuthForm> {
                   ),
                 ),
               ),
+              SizedBox(
+                height: 20,
+              ),
               TextFormField(
                 decoration: InputDecoration(
                   labelText: 'Enter your password',
@@ -40,6 +50,35 @@ class _AuthFormState extends State<AuthForm> {
                   ),
                 ),
                 obscureText: true,
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              OriginalButton(
+                text: widget.authType == AuthType.login ? 'Login' : 'Register',
+                textColor: Colors.white,
+                bgColor: Colors.lightBlue,
+                onPressed: () {
+                  if (widget.authType == AuthType.login)
+                    Navigator.of(context).pushReplacementNamed('register');
+                  else
+                    Navigator.of(context).pushReplacementNamed('login');
+                },
+              ),
+              SizedBox(
+                height: 5,
+              ),
+              FlatButton(
+                onPressed: () {},
+                child: Text(
+                  widget.authType == AuthType.login
+                      ? 'Don\'t hava an account ?'
+                      : 'You hava an account ?',
+                  style: TextStyle(
+                    color: Colors.black54,
+                    fontSize: 20,
+                  ),
+                ),
               ),
             ],
           ),
